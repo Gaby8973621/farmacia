@@ -4,24 +4,24 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+return new class extends Migration {
+    public function up()
     {
         Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->unique();
+            $table->string('contacto')->nullable();
+            $table->string('telefono', 15)->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('direccion')->nullable();
+            // 'created_at' y 'updated_at'
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
+        // Elimina la tabla en caso de rollback
         Schema::dropIfExists('proveedores');
     }
 };
