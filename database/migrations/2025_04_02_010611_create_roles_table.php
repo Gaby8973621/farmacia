@@ -14,17 +14,16 @@ return new class extends Migration
         // Tabla de roles
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre del rol (Ej. Admin, Empleado, etc.)
-            $table->text('descripcion')->nullable(); // Descripción del rol
-            $table->timestamps();
+            $table->string('nombre'); // Nombre del rol
+            $table->timestamps(); // Fechas de creación y actualización
         });
 
-        // Tabla intermedia para asociar usuarios con roles (relación muchos a muchos)
+        // Tabla intermedia para asociar roles con usuarios
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade'); // Relación con roles
-            $table->foreignId('user_id')->constrained('usuarios')->onDelete('cascade'); // Relación con usuarios
-            $table->timestamps();
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('usuarios')->onDelete('cascade');
+            $table->timestamps(); // Fechas de creación y actualización
         });
     }
 
