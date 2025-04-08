@@ -7,21 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecuta la migración para crear la tabla de productos.
      */
     public function up(): void
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre del producto
-            $table->decimal('precio', 8, 2); // Precio del producto
-            $table->integer('stock'); // Cantidad de producto disponible
-            $table->timestamps(); // Fechas de creación y actualización
+            $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Revierte la migración eliminando la tabla de productos.
      */
     public function down(): void
     {

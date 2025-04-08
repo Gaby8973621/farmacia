@@ -7,19 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecuta la migración para crear la tabla de clientes.
      */
     public function up(): void
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre del cliente
-            $table->timestamps(); // Fechas de creación y actualización
+            $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Revierte la migración eliminando la tabla de clientes.
      */
     public function down(): void
     {

@@ -7,28 +7,19 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecuta la migración para crear la tabla de roles.
      */
     public function up(): void
     {
         // Tabla de roles
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre del rol
-            $table->timestamps(); // Fechas de creación y actualización
-        });
-
-        // Tabla intermedia para asociar roles con usuarios
-        Schema::create('role_user', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('usuarios')->onDelete('cascade');
-            $table->timestamps(); // Fechas de creación y actualización
+            $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Revierte la migración eliminando la tabla de roles.
      */
     public function down(): void
     {

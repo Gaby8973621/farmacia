@@ -7,21 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecuta la migración para crear la tabla de empleados.
      */
     public function up(): void
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre del empleado
-            $table->string('cargo'); // Cargo del empleado
-            $table->decimal('salario', 8, 2); // Salario del empleado
-            $table->timestamps(); // Fechas de creación y actualización
+            $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Revierte la migración eliminando la tabla de empleados.
      */
     public function down(): void
     {
