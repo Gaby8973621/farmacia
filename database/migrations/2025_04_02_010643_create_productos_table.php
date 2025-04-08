@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre'); // Nombre del producto
+            $table->text('descripcion')->nullable(); // Descripción del producto
+            $table->decimal('precio', 8, 2); // Precio del producto
+            $table->integer('stock'); // Cantidad de producto disponible en inventario
+            $table->string('categoria')->nullable(); // Categoría del producto (Ej. Medicamento, Suplemento)
+            $table->timestamps(); // Fechas de creación y actualización
         });
     }
 

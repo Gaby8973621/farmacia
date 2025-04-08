@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre'); // Nombre del empleado
+            $table->string('cargo'); // Cargo del empleado (Ej. Farmacéutico, Cajero, etc.)
+            $table->decimal('salario', 8, 2); // Salario del empleado
+            $table->date('fecha_contratacion'); // Fecha de contratación
+            $table->string('telefono')->nullable(); // Teléfono del empleado
+            $table->string('direccion')->nullable(); // Dirección del empleado
+            $table->timestamps(); // Fechas de creación y actualización
         });
     }
 
